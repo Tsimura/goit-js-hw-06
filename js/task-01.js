@@ -1,4 +1,5 @@
 // переробити костилі через map
+// https://youtu.be/Haq2JIuE6Rg?t=6056
 
 const itemEl = document.querySelector('#categories');
 
