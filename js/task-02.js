@@ -25,15 +25,31 @@ const ingredients = [
 // listEl.append(...ingredientEl);
 
 // Варіант 2
+// const listEl = document.querySelector('#ingredients');
 
-const ingredientEl = ingredients.map(option => {
-  const linkEl = document.createElement('li');
+// const ingredientEl = ingredients.map(option => {
+//   const linkEl = document.createElement('li');
 
-  linkEl.classList.add('item');
-  linkEl.textContent = option;
-  return linkEl;
-});
-// console.log(ingredientEl);
+//   linkEl.classList.add('item');
+//   linkEl.textContent = option;
+//   return linkEl;
+// });
+// // console.log(ingredientEl);
+
+// listEl.append(...ingredientEl);
+
+// Варіант 3
 
 const listEl = document.querySelector('#ingredients');
+
+const makeList = options => {
+  return options.map(option => {
+    const linkEl = document.createElement('li');
+    linkEl.classList.add('item');
+    linkEl.textContent = option;
+    return linkEl;
+  });
+};
+
+const ingredientEl = makeList(ingredients);
 listEl.append(...ingredientEl);
