@@ -21,8 +21,8 @@ listEl.style.justifyContent = 'space-around';
 const imageEl = document.createElement('img');
 // console.log(imageEl);
 
-imageEl.src = images[0].url;
-imageEl.alt = images[0].alt;
+// imageEl.src = images[0].url;
+// imageEl.alt = images[0].alt;
 // console.log(imageEl);
 
 const markup = images
