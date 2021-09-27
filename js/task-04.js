@@ -1,11 +1,28 @@
-// Счетчик состоит из спана и кнопок, которые,
-// при клике, должны увеличивать и уменьшать его
-// значение на единицу.
+const counter = {
+  counterValue: 0,
+  increment() {
+    this.counterValue += 1;
+  },
+  decrement() {
+    this.counterValue -= 1;
+  },
+};
 
-// Создай переменную counterValue в которой будет храниться
-// текущее значение счетчика и инициализируй её значением 0.
+const btnDecrement = document.querySelector('[data-action="decrement"]');
+const btnIncrement = document.querySelector('[data-action="increment"]');
+const valueEl = document.querySelector('#value');
+// console.log(btnDecrement);
+// console.log(btnIncrement);
+// console.log(valueEl);
 
-// Добавь слушатели кликов на кнопки, внутри которых увеличивай
-// или уменьшай значение счтетчика.
+btnDecrement.addEventListener('click', function () {
+  //   console.log(-1);
+  counter.decrement();
+  valueEl.textContent = counter.counterValue;
+});
 
-// Обновляй интерфейс новым значением переменной counterValue.
+btnIncrement.addEventListener('click', function () {
+  //   console.log(+1);
+  counter.increment();
+  valueEl.textContent = counter.counterValue;
+});
