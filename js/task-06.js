@@ -2,7 +2,7 @@ const inputEl = document.querySelector('#validation-input');
 
 inputEl.addEventListener('focus', onInputFocus);
 inputEl.addEventListener('blur', onInputBlur);
-inputEl.addEventListener('change', onInputChange);
+inputEl.addEventListener('input', onInput);
 
 function onInputFocus() {
   console.log('input в стані "focus"');
@@ -12,7 +12,7 @@ function onInputBlur() {
   console.log('input в стані "blur"');
 }
 
-function onInputChange(event) {
+function onInput(event) {
   if (this.value.length == this.getAttribute('data-length')) {
     this.classList.add('valid');
     this.classList.remove('invalid');
