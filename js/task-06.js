@@ -1,4 +1,5 @@
 const inputEl = document.querySelector('#validation-input');
+
 inputEl.addEventListener('focus', onInputFocus);
 inputEl.addEventListener('blur', onInputBlur);
 inputEl.addEventListener('change', onInputChange);
