@@ -1,9 +1,7 @@
-// https://youtu.be/iJq-NwbZL84?t=1669
-
 const form = document.querySelector('.login-form');
-const email = form.querySelector('input[type = "email"]');
-const password = form.querySelector('input[type = "password"]');
-const btnSubmit = form.querySelector('button[type = "submit"]');
+const emailEl = form.querySelector('input[type = "email"]');
+const passwordEl = form.querySelector('input[type = "password"]');
+const btnSubmitEl = form.querySelector('button[type = "submit"]');
 
 form.addEventListener('submit', onFormSubmit);
 
@@ -20,22 +18,36 @@ form.addEventListener('submit', onFormSubmit);
 
 //Варіант 2: при необхідності звернутись до значення
 
+// function onFormSubmit(event) {
+//   // отмена перезагрузки браузера после отправки формы:
+//   event.preventDefault();
+
+//   // console.dir(event.currentTarget.elements);
+//   const formElement = event.currentTarget.elements;
+//   const email = formElement.email.value;
+//   const password = formElement.password.value;
+
+//   // console.log('email: ', email, 'password: ', password);
+
+//   const formData = { email, password };
+//   console.log(formData);
+// }
+
+//Варіант 3: при необхідності вивести alert
+
 function onFormSubmit(event) {
   // отмена перезагрузки браузера после отправки формы:
   event.preventDefault();
 
-  // console.dir(event.currentTarget.elements);
   const formElement = event.currentTarget.elements;
   const email = formElement.email.value;
   const password = formElement.password.value;
 
-  // console.log('email: ', email, 'password: ', password);
-
   const formData = { email, password };
-  console.log(formData);
-}
 
-// console.dir(form);
-// console.log(email);
-// console.log(password);
-// console.log(btnSubmit);
+  email == ''
+    ? alert('Всі поля повинні бути заповнені!')
+    : console.log(formData);
+  // очистка порми після відправки
+  form.reset();
+}
