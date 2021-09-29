@@ -19,23 +19,30 @@ function createValueInput() {
 
 function createBoxes(amountValue) {
   const startSize = 30;
-  const fragment = document.createDocumentFragment();
+  const element = document.createDocumentFragment();
   for (let i = 0; i < amountValue; i += 1) {
-    const size = startSize + i * 10;
+    const sizeEl = startSize + i * 10;
     const divArrEl = document.createElement('div');
 
-    divArrEl.style.cssText = `width: ${size}px; height: ${size}px; background-color: #(${getRandomHexColor()}) `;
+    const bgColor = getRandomHexColor();
+    // console.log(bgColor);
+
+    // divArrEl.style.cssText = `width: ${sizeEl}px; height: ${sizeEl}px; background-color: ${getRandomHexColor()} `;
 
     // розібратся чому так!!!
-    // divArrEl.style.cssText = `width: ${size}px; height: ${size}px `;
-    // divArrEl.style.backgroundColor = ` #(${getRandomHexColor()})`;
+    // divArrEl.setAttribute('style', `background-color: ${bgColor}`);
 
-    console.log(getRandomHexColor());
+    divArrEl.style.cssText = `width: ${sizeEl}px; height: ${sizeEl}px; `;
+
+    divArrEl.style.backgroundColor = `${getRandomHexColor()}`;
+
+    console.log('Колір HEX: ', getRandomHexColor());
     console.log(divArrEl.style.cssText);
+    console.log(divArrEl.style.backgroundColor);
 
-    fragment.appendChild(divArrEl);
+    element.appendChild(divArrEl);
   }
-  divBoxesEl.appendChild(fragment);
+  divBoxesEl.appendChild(element);
 }
 
 function destroyBoxes() {

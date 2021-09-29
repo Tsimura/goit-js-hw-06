@@ -13,8 +13,6 @@ function onInputBlur() {
 }
 
 function onInput(event) {
-  // this.style.outline = '0';
-  // this.style.outlineOffset = '0';
   if (event.currentTarget.value.length == this.getAttribute('data-length')) {
     this.classList.add('valid');
     this.classList.remove('invalid');
