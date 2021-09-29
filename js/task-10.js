@@ -36,6 +36,9 @@ function createBoxes(amountValue) {
 
     divArrEl.style.backgroundColor = `${getRandomHexColor()}`;
 
+    divBoxesEl.style.display = 'flex';
+    divBoxesEl.style.alignItems = 'center';
+    divBoxesEl.style.flexDirection = 'column';
     console.log('Колір HEX: ', getRandomHexColor());
     console.log(divArrEl.style.cssText);
     console.log(divArrEl.style.backgroundColor);
