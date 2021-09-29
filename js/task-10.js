@@ -1,35 +1,43 @@
-// Напиши скрипт создания и очистки коллекции элементов.
-// Пользователь вводит количество элементов в input и нажимает кнопку Создать,
-// после чего рендерится коллекция.При нажатии на кнопку Очистить,
-// коллекция элементов очищается.
-
-// Создай функцию createBoxes(amount), которая принимает один параметр - число.
-// Функция создает столько < div >, сколько указано в amount и добавляет их в
-// div#boxes.
-
-// Размеры самого первого <div> - 30px на 30px.
-// Каждый элемент после первого, должен быть шире и выше предыдущего на 10px.
-// Все элементы должены иметь случайный цвет фона в формате HEX.
-// Используй готовую функцию getRandomHexColor для получения цвета.
-
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const divEl = document.querySelector('#controls');
+// const divEl = document.querySelector('#controls');
 const inputEl = document.querySelector('input');
-const valueCreateEl = divEl.querySelector('[data-create]');
-const valueDestroyEl = divEl.querySelector('[data-destroy]');
+const valueCreateEl = document.querySelector('[data-create]');
+const valueDestroyEl = document.querySelector('[data-destroy]');
+const divBoxesEl = document.querySelector('#boxes');
 
-console.log(divEl);
-console.log(inputEl);
-console.log(valueCreateEl);
-console.log(valueDestroyEl);
+valueCreateEl.addEventListener('click', createValueInput);
+valueDestroyEl.addEventListener('click', destroyBoxes);
 
-inputEl.addEventListener('click', createBoxes);
+function createValueInput() {
+  const amountValue = inputEl.value;
+  console.log(amountValue);
+  createBoxes(amountValue);
+}
 
-function createBoxes(amount) {
-  amount = inputEl.value;
+function createBoxes(amountValue) {
+  const startSize = 30;
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < amountValue; i += 1) {
+    const size = startSize + i * 10;
+    const divArrEl = document.createElement('div');
 
-  console.log(amount);
+    divArrEl.style.cssText = `width: ${size}px; height: ${size}px; background-color: #(${getRandomHexColor()}) `;
+
+    // розібратся чому так!!!
+    // divArrEl.style.cssText = `width: ${size}px; height: ${size}px `;
+    // divArrEl.style.backgroundColor = ` #(${getRandomHexColor()})`;
+
+    console.log(getRandomHexColor());
+    console.log(divArrEl.style.cssText);
+
+    fragment.appendChild(divArrEl);
+  }
+  divBoxesEl.appendChild(fragment);
+}
+
+function destroyBoxes() {
+  divBoxesEl.innerHTML = '';
 }
