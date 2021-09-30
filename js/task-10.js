@@ -13,7 +13,7 @@ valueDestroyEl.addEventListener('click', destroyBoxes);
 
 function createValueInput() {
   const amountValue = inputEl.value;
-  console.log(amountValue);
+  // console.log(amountValue);
   createBoxes(amountValue);
 }
 
@@ -24,24 +24,20 @@ function createBoxes(amountValue) {
     const sizeEl = startSize + i * 10;
     const divArrEl = document.createElement('div');
 
-    const bgColor = getRandomHexColor();
-    // console.log(bgColor);
-
+    //Варіант додавання властивостей в однин рядок:
     // divArrEl.style.cssText = `width: ${sizeEl}px; height: ${sizeEl}px; background-color: ${getRandomHexColor()} `;
 
-    // розібратся чому так!!!
-    // divArrEl.setAttribute('style', `background-color: ${bgColor}`);
-
+    //Варіант додавання властивостей в два рядка:
     divArrEl.style.cssText = `width: ${sizeEl}px; height: ${sizeEl}px; `;
-
     divArrEl.style.backgroundColor = `${getRandomHexColor()}`;
 
+    //Трішки стилю для настрою
     divBoxesEl.style.display = 'flex';
     divBoxesEl.style.alignItems = 'center';
     divBoxesEl.style.flexDirection = 'column';
-    console.log('Колір HEX: ', getRandomHexColor());
-    console.log(divArrEl.style.cssText);
-    console.log(divArrEl.style.backgroundColor);
+    // console.log('Колір HEX: ', getRandomHexColor());
+    // console.log(divArrEl.style.cssText);
+    // console.log(divArrEl.style.backgroundColor);
 
     element.appendChild(divArrEl);
   }
