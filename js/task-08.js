@@ -19,7 +19,6 @@ form.addEventListener('submit', onFormSubmit);
 //Варіант 2: при необхідності звернутись до значення
 
 // function onFormSubmit(event) {
-//   // отмена перезагрузки браузера после отправки формы:
 //   event.preventDefault();
 
 //   // console.dir(event.currentTarget.elements);
@@ -36,18 +35,16 @@ form.addEventListener('submit', onFormSubmit);
 //Варіант 3: при необхідності вивести alert
 
 function onFormSubmit(event) {
-  // отмена перезагрузки браузера после отправки формы:
   event.preventDefault();
 
   const formElement = event.currentTarget.elements;
   const email = formElement.email.value;
   const password = formElement.password.value;
-
   const formData = { email, password };
 
-  email == ''
+  email == '' || password == ''
     ? alert('Всі поля повинні бути заповнені!')
     : console.log(formData);
-  // очистка порми після відправки
+
   form.reset();
 }
