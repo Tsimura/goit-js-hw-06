@@ -8,7 +8,7 @@ const createEl = document.querySelector('[data-create]');
 const destroyEl = document.querySelector('[data-destroy]');
 const divBoxesEl = document.querySelector('#boxes');
 
-let startSizeBox = 30;
+let startSizeBox = 20;
 
 inputEl.addEventListener('input', createValueInput);
 createEl.addEventListener('click', createBoxes);
