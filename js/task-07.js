@@ -8,5 +8,5 @@ inputEl.addEventListener('input', valueInput);
 
 function valueInput() {
   titleEl.style.fontSize = `${this.value}px`;
-  console.log('Значение:', this.value);
+  // console.log('Значение:', this.value);
 }
