@@ -1,10 +1,12 @@
 const inputEl = document.querySelector('#font-size-control');
 const titleEl = document.querySelector('#text');
-let valueSize = 0;
 
-inputEl.addEventListener('change', valueInput);
+titleEl.style.fontSize = `${inputEl.value}px`;
+// console.log(inputEl.value);
+
+inputEl.addEventListener('input', valueInput);
 
 function valueInput() {
-  valueSize = titleEl.style.fontSize = `${this.value}px`;
-  //   console.log('Значение:', this.value);
+  titleEl.style.fontSize = `${this.value}px`;
+  console.log('Значение:', this.value);
 }
