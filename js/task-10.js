@@ -16,7 +16,7 @@ destroyEl.addEventListener('click', destroyBoxes);
 
 function createValueInput(element) {
   inputEl.setAttribute('counter', Number(element.currentTarget.value));
-  console.log(Number(element.currentTarget.value));
+  // console.log(Number(element.currentTarget.value));
 }
 
 function createBoxes() {
