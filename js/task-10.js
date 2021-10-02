@@ -4,44 +4,40 @@ function getRandomHexColor() {
 
 // const divEl = document.querySelector('#controls');
 const inputEl = document.querySelector('input');
-const valueCreateEl = document.querySelector('[data-create]');
-const valueDestroyEl = document.querySelector('[data-destroy]');
+const createEl = document.querySelector('[data-create]');
+const destroyEl = document.querySelector('[data-destroy]');
 const divBoxesEl = document.querySelector('#boxes');
 
-valueCreateEl.addEventListener('click', createValueInput);
-valueDestroyEl.addEventListener('click', destroyBoxes);
+let startSizeBox = 30;
 
-function createValueInput() {
-  const amountValue = inputEl.value;
-  // console.log(amountValue);
-  createBoxes(amountValue);
+inputEl.addEventListener('input', createValueInput);
+createEl.addEventListener('click', createBoxes);
+destroyEl.addEventListener('click', destroyBoxes);
+
+function createValueInput(element) {
+  inputEl.setAttribute('counter', Number(element.currentTarget.value));
+  console.log(Number(element.currentTarget.value));
 }
 
-function createBoxes(amountValue) {
-  const startSize = 30;
-  const element = document.createDocumentFragment();
-  for (let i = 0; i < amountValue; i += 1) {
-    const sizeEl = startSize + i * 10;
-    const divArrEl = document.createElement('div');
+function createBoxes() {
+  let counterBoxes = Number(inputEl.getAttribute('counter'));
+  for (let i = 0; i < counterBoxes; i += 1) {
+    startSizeBox += 10;
+    const divEl = document.createElement('div');
 
-    //Варіант додавання властивостей в однин рядок:
-    // divArrEl.style.cssText = `width: ${sizeEl}px; height: ${sizeEl}px; background-color: ${getRandomHexColor()} `;
+    divEl.style.cssText = `width: ${startSizeBox}px; height: ${startSizeBox}px; background-color: ${getRandomHexColor()} `;
+    divEl.style.margin = '5px';
 
-    //Варіант додавання властивостей в два рядка:
-    divArrEl.style.cssText = `width: ${sizeEl}px; height: ${sizeEl}px; `;
-    divArrEl.style.backgroundColor = `${getRandomHexColor()}`;
+    divEl.classList.add('created-element');
 
-    //Трішки стилю для настрою
     divBoxesEl.style.display = 'flex';
     divBoxesEl.style.alignItems = 'center';
     divBoxesEl.style.flexDirection = 'column';
-    // console.log('Колір HEX: ', getRandomHexColor());
-    // console.log(divArrEl.style.cssText);
-    // console.log(divArrEl.style.backgroundColor);
 
-    element.appendChild(divArrEl);
+    divBoxesEl.appendChild(divEl);
+
+    inputEl.value = '';
   }
-  divBoxesEl.appendChild(element);
 }
 
 function destroyBoxes() {
